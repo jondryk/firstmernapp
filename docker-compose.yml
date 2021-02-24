@@ -1,0 +1,19 @@
+version: "3"
+services:
+  backmern:
+    image: backmern
+    ports:
+      - "5000:5000"
+    networks: 
+      - appfinal
+  frontmern:
+    image: frontmern
+    ports: 
+      - "3000:3000"
+    networks: 
+      - appfinal
+    depends_on:
+      - backmern
+networks:
+  appfinal:
+    driver: bridge
